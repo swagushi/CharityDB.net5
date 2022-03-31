@@ -1,0 +1,63 @@
+﻿@model CharityDB.net5.Models.donations
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>donations</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="donationName" class="control-label"></label>
+                <input asp-for="donationName" class="form-control" />
+                <span asp-validation-for="donationName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="donationPrice" class="control-label"></label>
+                <input asp-for="donationPrice" class="form-control" />
+                <span asp-validation-for="donationPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="donationDescription" class="control-label"></label>
+                <input asp-for="donationDescription" class="form-control" />
+                <span asp-validation-for="donationDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransactionID" class="control-label"></label>
+                <input asp-for="TransactionID" class="form-control" />
+                <span asp-validation-for="TransactionID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransactionName" class="control-label"></label>
+                <input asp-for="TransactionName" class="form-control" />
+                <span asp-validation-for="TransactionName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Banktype" class="control-label"></label>
+                <input asp-for="Banktype" class="form-control" />
+                <span asp-validation-for="Banktype" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountNumber" class="control-label"></label>
+                <input asp-for="AccountNumber" class="form-control" />
+                <span asp-validation-for="AccountNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
