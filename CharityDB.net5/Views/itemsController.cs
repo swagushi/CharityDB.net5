@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using CharityDB.net5;
+using CharityDB;
 using CharityDB.net5.Models;
 
 namespace CharityDB.net5.Views
 {
     public class itemsController : Controller
     {
-        private readonly DataContext _context;
+        private readonly net5Context _context;
 
-        public itemsController(DataContext context)
+        public itemsController(net5Context context)
         {
             _context = context;
         }

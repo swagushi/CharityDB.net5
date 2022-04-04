@@ -9,8 +9,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using CharityDB.net5.Data;
 using CharityDB.net5;
+using CharityDB;
+
 
 namespace CharityDB.net5
 {
@@ -28,11 +29,12 @@ namespace CharityDB.net5
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<Context>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("Context")));
+            services.AddDbContext<net5Context>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("net5Context")));
 
-            services.AddDbContext<DataContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("DataContext")));
+
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

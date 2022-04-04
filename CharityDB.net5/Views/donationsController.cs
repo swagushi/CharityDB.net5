@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using CharityDB.net5;
+using CharityDB;
 using CharityDB.net5.Models;
 
 namespace CharityDB.net5.Views
 {
     public class donationsController : Controller
     {
-        private readonly DataContext _context;
+        private readonly net5Context _context;
 
-        public donationsController(DataContext context)
+        public donationsController(net5Context context)
         {
             _context = context;
         }
@@ -54,7 +54,7 @@ namespace CharityDB.net5.Views
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("donationsID,donationName,donationPrice,donationDescription,TransactionID,TransactionName,Banktype,AccountNumber")] donations donations)
+        public async Task<IActionResult> Create([Bind("donationsID,UserID,donationName,donationPrice,donationDescription,TransactionID,TransactionName,Banktype,AccountNumber")] donations donations)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace CharityDB.net5.Views
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("donationsID,donationName,donationPrice,donationDescription,TransactionID,TransactionName,Banktype,AccountNumber")] donations donations)
+        public async Task<IActionResult> Edit(int id, [Bind("donationsID,UserID,donationName,donationPrice,donationDescription,TransactionID,TransactionName,Banktype,AccountNumber")] donations donations)
         {
             if (id != donations.donationsID)
             {

@@ -5,14 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using CharityDB.net5.Models;
 
-namespace CharityDB.net5
+namespace CharityDB
 {
-    public class DataContext : DbContext
+    public class net5Context : DbContext
     {
-        public DataContext (DbContextOptions<DataContext> options)
+        public net5Context (DbContextOptions<net5Context> options)
             : base(options)
         {
         }
+
+        public DbSet<CharityDB.net5.Models.members> members { get; set; }
 
         public DbSet<CharityDB.net5.Models.donations> donations { get; set; }
 
