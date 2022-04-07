@@ -20,9 +20,20 @@ namespace CharityDB.net5.Views
         }
 
         // GET: members
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
+
         {
-            return View(await _context.members.ToListAsync());
+            ViewData["CurrentFilter"] = searchString;
+            var filterUser = from s in _context.members
+                             select s;
+            if( !string.IsNullOrEmpty(searchString))
+            {
+                filterUser = filterUser.Where(s => s.membersName.Contains(searchString)
+                               || s.LastName.Contains(searchString));
+            
+
+        }
+            return View(await filterUser.AsNoTracking().ToListAsync());
         }
 
         // GET: members/Details/5
